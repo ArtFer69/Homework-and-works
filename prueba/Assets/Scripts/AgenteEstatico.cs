@@ -9,10 +9,14 @@ using UnityEngine;
 //Los estados en que puede estar el agente
 public enum AgentState {Idle, OnMovement, Attacking, Dead}
 
+
+
 public class AgenteEstatico : MonoBehaviour
 {
     //Una variable para saber el estado del agente
     public AgentState agentStatus;
+
+    
 
     //Una variable para saber que estado se esta ejecutando
     public FunctionsFSM curState;
@@ -23,6 +27,8 @@ public class AgenteEstatico : MonoBehaviour
     public Transform sensorPosition;    //La posición del sensor
     public bool targetDetected = false; //Un variable con dos posibles valores para saber si esta en rango el taget
 
+    public GameObject tarjetObj; //---------------------------------Tarea---------------
+
     [Header("Elementos del agente")]
     public float speedRotation = 5f; //Velocidad de rotación
     public float timeIdle = 10f;      //Tiempo de espera
@@ -30,7 +36,8 @@ public class AgenteEstatico : MonoBehaviour
     public Vector3[] angles;        //Un arreglo de vectores que guarda los angulos que debe pasar el agente
     public int angleIndex;          //Una variable para recorrer el arreglo uno por uno
 
-
+    public GameObject prefabBala;
+    public Transform canion;
     //Declaración de los estados que tendrá el agente para su ejecución
     public readonly IdleStaticState idleState = new IdleStaticState();
     public readonly RotateStaticAgent rotateState = new RotateStaticAgent();
@@ -39,6 +46,8 @@ public class AgenteEstatico : MonoBehaviour
     // Este metodo se manda llamar cuando se ejecuta el proyecto
     void Start()
     {
+        tarjetObj = GameObject.FindGameObjectWithTag("Player");
+        
         TransitionToState(idleState); //Su primer estado es el Idle
     }
 
@@ -79,6 +88,11 @@ public class AgenteEstatico : MonoBehaviour
 
     //Metodo para ejecutar corutinas y nos permitan ejecutar ciertos procesos en un cantidad de tiempo determinada,
     //en este caso la espera para depues de rotar
+    public void Firebullet()
+    {
+        Instantiate(prefabBala, canion.position, canion.rotation);
+    }
+
     public void Coroutine(IEnumerator thisCoroutine)
     {
         StartCoroutine(thisCoroutine);

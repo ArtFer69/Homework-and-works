@@ -35,6 +35,7 @@ public class RotateStaticAgent : FunctionsFSM
                 agent.angleIndex = (agent.angleIndex + 1) % agent.angles.Length; //Pasar al siguiente angulo, recorriendo el arreglo de angulos, va a recorre siempre de 0 - el tamaño del arreglo
                 agent.TransitionToState(agent.idleState); //Una vez llegado ahí queremos que espere un momento antes de rotar, por eso se hace la transición al estado Idle
             }
+
         }
     }
 }

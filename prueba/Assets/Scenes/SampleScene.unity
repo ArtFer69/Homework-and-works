@@ -135,7 +135,7 @@ GameObject:
   - component: {fileID: 208859788}
   m_Layer: 8
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -208,7 +208,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 208859787}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.91, y: 4.46, z: 7.45}
+  m_LocalPosition: {x: 2.91, y: 4.46, z: 0.71}
   m_LocalScale: {x: 1.4646491, y: 1.3834219, z: 1.4462615}
   m_Children: []
   m_Father: {fileID: 0}
@@ -478,7 +478,8 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0.568501, y: 0.049000263, z: -0.0029997826}
   m_LocalScale: {x: 1.4093075, y: 0.36311185, z: 0.3523529}
-  m_Children: []
+  m_Children:
+  - {fileID: 1266392824}
   m_Father: {fileID: 1406128061}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -576,6 +577,36 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: -0.716, y: 0.77900004, z: 1.1010001}
+--- !u!1 &1266392823
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1266392824}
+  m_Layer: 0
+  m_Name: Canon
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1266392824
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1266392823}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.488, y: -0.29, z: -0.19}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1019307505}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1406128057
 GameObject:
   m_ObjectHideFlags: 0
@@ -591,7 +622,7 @@ GameObject:
   - component: {fileID: 1406128062}
   m_Layer: 0
   m_Name: agente
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -691,6 +722,7 @@ MonoBehaviour:
   radiusDetection: 5
   sensorPosition: {fileID: 1585105909}
   targetDetected: 0
+  tarjetObj: {fileID: 0}
   speedRotation: 5
   timeIdle: 2
   angles:
@@ -699,6 +731,9 @@ MonoBehaviour:
   - {x: 0, y: 270, z: 0}
   - {x: 0, y: 360, z: 0}
   angleIndex: 0
+  prefabBala: {fileID: 3853107618813707614, guid: 965ad5bdb29956044a405aad1922859d,
+    type: 3}
+  canion: {fileID: 1266392824}
 --- !u!1 &1585105908
 GameObject:
   m_ObjectHideFlags: 0
